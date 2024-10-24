@@ -1,4 +1,4 @@
-﻿@page "/counter"
+@page "/counter"
 @rendermode InteractiveServer
 @using System.Drawing
 
@@ -8,8 +8,8 @@
 
 <p role="status" class="@counterClass">Current count: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">加算</button>
-<button class="btn btn-primary" @onclick="DecrementCount">減算</button>
+<RadzenButton Text="加算" Click="IncrementCount" class="btn btn-primary"></RadzenButton>
+<RadzenButton Text="減算" Click="DecrementCount" class="btn btn-primary"></RadzenButton>
 
 @code {
     private int currentCount = 0;
