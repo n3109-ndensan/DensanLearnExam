@@ -1,0 +1,36 @@
+<div class="form-field">
+    <label>タスク名:</label>
+    <div>
+        <InputText @bind-Value="MyEditTask.TaskName" style="width: 233px" />
+        <ValidationMessage For="@(() => MyEditTask.TaskName)" />
+    </div>
+</div>
+
+<div class="form-field">
+    <label>期限:</label>
+    <div>
+        <InputDate @bind-Value="MyEditTask.Limit" />
+        <ValidationMessage For="@(() => MyEditTask.Limit)" />
+    </div>
+</div>
+
+<div class="form-field">
+    <label>状態:</label>
+    <div>
+        <InputSelect @bind-Value="MyEditTask.Status" style="width: 119px">
+            @foreach (var status in CommonConstants.TaskStatus.GetAllStatusSet())
+            {
+                <option value="@status.Key">@status.Value</option>
+            }
+        </InputSelect>
+        <ValidationMessage For="@(() => MyEditTask.Status)" />
+    </div>
+</div>
+
+<div class="form-field">
+    <label>内容:</label>
+    <div>
+        <InputTextArea @bind-Value="MyEditTask.Content" style="width: 318px; height: 121px" />
+        <ValidationMessage For="@(() => MyEditTask.Content)" />
+    </div>
+</div>

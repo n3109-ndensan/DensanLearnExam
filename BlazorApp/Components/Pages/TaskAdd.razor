@@ -1,0 +1,20 @@
+﻿@page "/task-add"
+@implements IDisposable
+@rendermode InteractiveServer
+@inject IStateBox<List<MyTask>> sessionState
+@inject NavigationManager NavigationManager
+
+<h3>タスク登録</h3>
+
+<div class="main">
+    <EditForm EditContext=editContext OnValidSubmit=PlaceTask>
+        <div>
+            <TaskEditor MyEditTask="myTask" />
+        </div>
+
+        <RadzenButton Text="登録" ButtonType="ButtonType.Submit" class="btn btn-primary" Disabled="@isError"></RadzenButton>
+        <RadzenButton Text="キャンセル" Click="Cancel" class="btn btn-primary"></RadzenButton>
+
+        <DataAnnotationsValidator />
+    </EditForm>
+</div>
