@@ -51,5 +51,16 @@ namespace BlazorApp.Components.Pages
             NavigationManager.NavigateTo("task-add");
         }
 
+        protected string GetFirstLine(string tgtStr)
+        {
+            if (string.IsNullOrEmpty(tgtStr)) return string.Empty;
+
+            int idx = tgtStr.IndexOf("\n");
+            //改行がない場合、そのまま返却
+            if (idx < 0) return tgtStr;
+
+            return tgtStr.Substring(0, idx);
+        }
+
     }
 }

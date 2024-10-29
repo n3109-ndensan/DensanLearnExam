@@ -31,7 +31,7 @@ Welcome to your new app.
             </RadzenDataGridColumn>
             <RadzenDataGridColumn Title="内容">
                 <Template>
-                    @context.Content
+                    @GetFirstLine(context.Content)
                 </Template>
             </RadzenDataGridColumn>
         </Columns>
