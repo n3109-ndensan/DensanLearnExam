@@ -1,5 +1,6 @@
 ﻿using BlazorApp.Entities;
 using BlazorApp.Utils;
+using BlazorApp.Utils.CommonConstants;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System.Collections.Generic;
@@ -7,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BlazorApp.Components.Pages
 {
-    public partial class TaskAdd : IDisposable
+    public partial class ShainAdd : IDisposable
     {
-        private MyTask myTask = default!;
+        private ShainInfo editShain = default!;
         bool isError = false;
         private EditContext editContext = default!;
 
@@ -17,8 +18,8 @@ namespace BlazorApp.Components.Pages
         {
             await base.OnInitializedAsync();
 
-            myTask = new MyTask("", DateTime.Today, CommonConstants.TaskStatus.Pending, "");
-            editContext = new(myTask);
+            editShain = new ShainInfo("", DateTime.Today, ShainKbn.Regular, "");
+            editContext = new(editShain);
             editContext.OnFieldChanged += HandleFieldChanged;
         }
 
@@ -31,22 +32,22 @@ namespace BlazorApp.Components.Pages
             StateHasChanged();
         }
 
-        async Task PlaceTask()
+        async Task PlaceShain()
         {
             await Task.Yield();
 
-            if (myTask != null)
+            if (editShain != null)
             {
                 if (sessionState.HasState)
                 {
-                    List<MyTask> list = sessionState.State!;
-                    list.Add(myTask);
+                    List<ShainInfo> list = sessionState.State!;
+                    list.Add(editShain);
                     sessionState.State = list;
                 }
                 else
                 {
-                    List<MyTask> list = new();
-                    list.Add(myTask);
+                    List<ShainInfo> list = new();
+                    list.Add(editShain);
                     sessionState.State = list;
                 }
             }

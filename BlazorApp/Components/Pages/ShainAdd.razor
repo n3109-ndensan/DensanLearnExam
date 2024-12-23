@@ -1,17 +1,17 @@
-﻿@page "/task-add"
+﻿@page "/shain-add"
 @implements IDisposable
 @rendermode InteractiveServer
-@inject IStateBox<List<MyTask>> sessionState
+@inject IStateBox<List<ShainInfo>> sessionState
 @inject NavigationManager NavigationManager
 
-<PageTitle>タスク登録</PageTitle>
+<PageTitle>社員登録</PageTitle>
 
-<h1>タスク登録</h1>
+<h1>社員登録</h1>
 
 <div class="main">
-    <EditForm EditContext=editContext OnValidSubmit=PlaceTask>
+    <EditForm EditContext=editContext OnValidSubmit=PlaceShain>
         <div>
-            <TaskEditor MyEditTask="myTask" />
+            <ShainEditor EditShainInfo="editShain" />
         </div>
 
         <RadzenButton Text="登録" ButtonType="ButtonType.Submit" class="btn btn-primary" Disabled="@isError"></RadzenButton>

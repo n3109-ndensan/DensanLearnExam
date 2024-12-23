@@ -4,9 +4,9 @@ using System.Net;
 
 namespace BlazorApp.Components.Pages
 {
-    public partial class TaskEditor
+    public partial class ShainEditor
     {
         [Parameter] 
-        public MyTask MyEditTask { get; set; } = default!;
+        public ShainInfo EditShainInfo { get; set; } = default!;
     }
 }

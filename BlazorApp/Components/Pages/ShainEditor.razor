@@ -1,0 +1,38 @@
+@using BlazorApp.Utils.CommonConstants
+
+<div class="form-field">
+    <label>–¼:</label>
+    <div>
+        <InputText @bind-Value="EditShainInfo.ShainName" style="width: 233px" />
+        <ValidationMessage For="@(() => EditShainInfo.ShainName)" />
+    </div>
+</div>
+
+<div class="form-field">
+    <label>“üĞ“ú:</label>
+    <div>
+        <InputDate @bind-Value="EditShainInfo.Nyushabi" />
+        <ValidationMessage For="@(() => EditShainInfo.Nyushabi)" />
+    </div>
+</div>
+
+<div class="form-field">
+    <label>ŒÙ—pŒ`‘Ô:</label>
+    <div>
+        <InputSelect @bind-Value="EditShainInfo.ShainKbn" style="width: 119px">
+            @foreach (var status in ShainKbn.GetAllShainKbnSet())
+            {
+                <option value="@status.Key">@status.Value</option>
+            }
+        </InputSelect>
+        <ValidationMessage For="@(() => EditShainInfo.ShainKbn)" />
+    </div>
+</div>
+
+<div class="form-field">
+    <label>”õl:</label>
+    <div>
+        <InputTextArea @bind-Value="EditShainInfo.Biko" style="width: 318px; height: 121px" />
+        <ValidationMessage For="@(() => EditShainInfo.Biko)" />
+    </div>
+</div>

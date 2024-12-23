@@ -2,39 +2,34 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
-namespace BlazorApp.Utils
+namespace BlazorApp.Utils.CommonConstants
 {
-    public class CommonConstants
+    public class ShainKbn
     {
+        public const string Regular = "0";
+        public const string Commission = "1";
+        public const string Partner = "3";
 
-        public class TaskStatus
+        public static string GetName(string kbn)
         {
-            public const string Pending = "0";
-            public const string InProgress = "1";
-            public const string Completed = "2";
-            public const string Ignored = "9";
-
-            public static string GetName(string status)
+            return kbn switch
             {
-                return status switch
-                {
-                    Pending => "未着手",
-                    InProgress => "仕掛中",
-                    Completed => "完了",
-                    Ignored => "無視",
-                    _ => "不明"
-                };
-            }
+                Regular => "正社員",
+                Commission => "嘱託",
+                Partner => "協力会社",
+                _ => "不明"
+            };
+        }
 
-            public static List<string> GetAllStatuses()
-            {
-                return new List<string> { Pending, InProgress, Completed, Ignored };
-            }
+        public static List<string> GetAllShainKbn()
+        {
+            return new List<string> { Regular, Commission, Partner };
+        }
 
-            public static Dictionary<string, string> GetAllStatusSet()
-            {
-                return GetAllStatuses().ToDictionary(status => status, GetName);
-            }
+        public static Dictionary<string, string> GetAllShainKbnSet()
+        {
+            return GetAllShainKbn().ToDictionary(kbn => kbn, GetName);
         }
     }
+
 }
